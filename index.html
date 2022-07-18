@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 라네즈- </title>
+  <link rel="shortcut icon" href="logo.ico">
+    <style>
+   *{margin: 0; padding: 0; list-style: none;}
+   header {width: 100%; height: 60px;  background-color: white; border-bottom: 1px solid #ccc; position: fixed; left: 0; top: 0; z-index: 9999;}
+   #logo { width: 130px; height: 36px;  float: left; margin-top: 12px; margin-left: 45px;}
+   #menu { width: 980px; height: 60px; line-height: 60px; position: absolute; left: 0; right: 0; top: 0; margin: auto;   text-align: center;}
+   #menu li{ display: inline-block; padding:0 20px; position: relative;}
+   #menu li div {width: 0%; height: 4px; background-color: black; position: absolute; left: 0; right: 0; bottom: 0;  margin: auto; transition: 0.2s; cursor: pointer;}
+   #menu li:hover div {width: 100%; cursor: pointer; }
+
+   #icon { width: 200px; height: 36px;  float: right; margin-top: 15px;}
+   #icon img { float: left; margin-right: 18px;} 
+
+
+
+   #slide {width: 100%; height: 600px; background: url(20220607_final_HUG_main_KV_pc.jpg) center  top no-repeat; position: relative; margin-top: 60px;}
+   #slide_bt { width: 300px; height: 50px;  position: absolute; left: 0; right: 0; bottom: 30px; margin: auto; text-align: center; line-height: 50px;}
+   #slide_bt_prev { width: 13px; vertical-align: middle; }
+   #slide_bt_pause {width: 13px; vertical-align: middle;}
+   #slide_bt_box {width: 150px; height: 20px; display: inline-block; vertical-align: middle; line-height: 20px;}
+   #slide_bt_box li { width: 8px; height: 8px;  border-radius: 8px; background-color: gray; margin: 0 3px; display: inline-block ; vertical-align: middle;}
+   #slide_bt_next {width: 13px; vertical-align: middle;}
+   #slide_textbox { width: 900px; height: 220px; position: absolute; left: -300px; right: 0; top: 0; bottom: 0; margin: auto; }
+   #slide_textbox h3 { font-size: 40px;}
+   #slide_textbox h6 { font-size: 20px; margin-top: 15px;}
+   #slide_textbox p { font-size: 15px;}
+   #best {width: 100%; height: 1000px;  position: relative;}
+   #best_bg {width: 100%; height: 460px; overflow: hidden;}
+   #best_content {width: 1170px; height: 860px; position: absolute; left: 0; right: 0; top: 70px; margin: auto; }
+   #best_content h2{ font-size: 40px; line-height: 100px; text-align: center;}
+   #best_content ul { overflow: hidden; text-align: center;}
+   #best_content ul li {width: 320px; height: 650px; margin: 35px; float:left; }
+   #best_content ul li  img {width: 100%; height: 60%; transition: 0.5s; }
+   #best_content ul li  img:hover { transform: rotate(-20deg);}
+   #best_content h3 {color: skyblue; font-size: 25px;}
+   #best_content h4 { font-size: 20px; color: rgba(0, 0, 0, 0.664);}
+   #best_content h6 { font-size: 14px; color: gray; margin-top: 10px;}
+   #best_content p { font-size: 13px; color: gray; margin-top: 10px;}
+   #best_prev {position: absolute; left: 0px; top: 0; bottom:0; margin: auto ;  }
+   #best_right {position: absolute;  top: 0; right: 0; bottom:0; margin: auto ;  }
+   #no  { width: 18px; height: 18px;  margin: auto; margin-top: 30px;}
+
+
+
+   #banner {width: 1224px; height: 750px; margin: auto; margin-top: 100px;  }
+   #banner ul {}
+   #banner ul li {width: 322px; height: 650px; margin: 43px;  float: left; position: relative;}
+   .banner_text {width: 150px; height: 40px; line-height: 40px; color:#668fca;  position: absolute; left: -105px;top: 55px;  transform: rotate(-90deg);  text-align: right; font-weight: 1000;}
+   #banner ul li img {width: 100%; }
+   #banner ul li h6 {font-size: 17px; color: rgb(58, 58, 58); font-weight: 500;}
+   #banner ul li p {font-size: 13px; color: rgba(105, 105, 105, 0.836); margin-top: 10px; margin: 5px;}
+
+   #content {width: 1190px; height: 1450px; margin: auto; margin-top: 100px; position: relative;  border: 1px solid #000;}
+   #content1 {width: 715px; height: 530px; position: absolute; left: 0; top: 0;    border: 1px solid #000; }
+   #content1 h2{width: 160px; height: 40px; font-size: 20px;  line-height: 40px; color: #668fca; position: absolute; left: -100px;top: 60px;  transform: rotate(-90deg);  text-align: right; font-weight:400;}
+   #content1 img {width: 100%;  padding-left: 9px; } 
+   #content2 {width: 420px; height: 700px; position: absolute; right: 0; top: 0; } 
+   #content2 h2{width: 160px; height: 40px; font-size: 20px; line-height: 40px; color: #668fca; position: absolute; left: -90px;top: 60px;  transform: rotate(-90deg);  text-align: right; font-weight:400;}
+   #content2 img {width: 100%;  padding-left: 9px; }
+   #content3 {width: 420px; height: 700px; position: absolute; left: 0; bottom: 0; } 
+   #content3 h2{width: 160px; height: 40px; font-size: 20px;  line-height: 40px; color: #668fca; position: absolute; left: -100px;top: 60px;  transform: rotate(-90deg);  text-align: right; font-weight:400;}
+   #content3 img {width: 100%; height: 500px;  padding-left: 9px;}
+   #content4 {width: 715px; height: 530px;  position: absolute;  right:0; bottom: 0; } 
+   #content4 img {width: 100%;  padding-left: 9px;}
+   #content4 h2{width: 160px; height: 40px; font-size: 20px; line-height: 40px; color: #668fca; position: absolute; left: -90px;top: 60px;  transform: rotate(-90deg);  text-align: right; font-weight:400;}
+ 
+  #content h6 { font-size: 20px; margin-top: 10px;color: rgb(58, 58, 58); font-weight: 200;padding-left: 9px;}
+  #content p { font-size: 16px; margin-top: 10px; color: rgba(105, 105, 105, 0.836); padding-left: 9px;}
+
+  footer {width: 100%; height: 200px;  margin-top: 50px;}
+  #footer1 { width: 100%; height: 30px; border-bottom: 1px solid rgba(105, 105, 105, 0.836); position: relative;}
+  #footer_box1 { width: 790px; height: 30px;  position: absolute; right:0; left: 355px; bottom: 0;  top: 0;}
+  #footer1 ul li {  float: left; font-size: 13px; margin-right: 35px; line-height: 30px; }
+  #footer_box2 { width: 150px; height: 30px;  position: absolute; right: 355px;}
+  #footer_box2 img { margin: 3px;}
+  #footer2 { width: 1200px; height: 170px;  margin: auto; }
+  #footer2_box1 {  width: 530px; height: 100px; }
+  #footer2_box1 img {float: right;  }
+  #footer2_box1 h6 {margin-top: 30px; font-size: 12px;}
+  #footer2_box1 p {margin-top: 50px; font-size: 12px;}
+  #footer2_box2 { width: 300px; height: 40px; float: right; position: relative;}
+  #footer2_box2 select {width: 300px; height: 50px;  position: absolute; bottom: 90px;}
+
+    </style>
+</head>
+<body>
+    <header>
+    <h1 id="logo"><img src="icons/laneige-logo.svg" alt=""></h1>
+    <ul id="menu">
+
+    <li>브랜드<div></div></li><li>미츠 아트<div></div></li><li>베스트 & 신상품<div></div></li><li>스킨케어<div></div></li><li>메이크업<div></div></li><li>옴므<div></div></li><li>비스포크<div></div></li><li>이벤트<div></div></li>
+
+    </ul>
+
+    <ul id="icon">
+        <li> <img src="icons/header-icon_1.png" alt=""></li>
+        <li><img src="icons/header-icon_2.png" alt=""></li>
+        <li><img src="icons/header-icon_3.png" alt=""></li>
+    </ul>
+
+    </header>
+    <!---->
+    <div id="slide"><div id="slide_textbox">
+            <h3>HUG for Universal Goodness</h3> <h6>
+                글로벌 다양한 고객의 아름다움과 지속 가능한 지구를 감싸안는 <br>
+                라네즈의 지속 가능한 약속</h6><p>#라네허그 #LANEIGE HUG #SAVE THE WATER</p>
+        </div>
+      <div id="slide_bt">
+        
+        <img src="icons/btn_prev_popup.png" alt="" id="slide_bt_prev">
+        <img src="icons/btn_next_popup.png" alt="" id="slide_bt_pause">
+        <ul id="slide_bt_box">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <img src="icons/btn_next_popup.png" alt="" id="slide_bt_next">
+      </div>
+
+    </div>
+    <div id="best">
+        <div id="best_bg"><video src="images/bestseller-bg.mp4" autoplay loop muted></video></div>
+        <div id="best_content">
+          <h2> BEST SELLER</h2>
+       <ul>
+        <li><img src="images/1 (2).png" alt=""> <h3>CREAM SKIN REFINER</h3>
+        <h4>크림 스킨</h4>
+        <div id="no"><img src="good.png" alt=""></div>
+        <h6>보습 크림 한 통을 그대로 녹여내어 토너만으로도 로션을 바른 듯 건조한 피부를 촉촉하게 채우고 피부를 진정시키는 라네즈 스킨케어 제품이에요</h6>
+         <p>@rabb*****</p>
+       </li>
+        <li><img src="images/2.png" alt="">
+        <h3>NEO CUSHION_MATTE</h3>
+        <h4>네오 쿠션_매트</h4>
+        <div id="no"><img src="good.png" alt=""></div>
+        <h6>한 번의 터치만으로 타고난 듯 24시간 완벽하게 커버해주는 매트 쿠션이예요.
+            13N</h6>
+            <p> @dwfg******</p>
+       </li>
+        <li><img src="images/3.png" alt="">
+            <h3>RADIAN-C CREAM</h3>
+            <h4>래디언-C 크림</h4>
+            <div id="no"><img src="good.png" alt=""></div>
+            <h6>초강력 #톤업부스터의 힘으로 피부 코어부터 맑아지는 비타민 크림</h6>
+                <p> @afldl***</p>
+        </li>
+       </ul>
+       <img src="icons/prev-bt.png" alt="" id="best_prev">
+       <img src="icons/next-bt.png" alt="" id="best_right">
+        </div>
+    </div>
+    <!---->
+    <div id="banner">
+        <ul>
+            <li>
+               <img src="images/1.jpg" alt="">
+               <h6>FEEL the GLOW</h6>
+               <p>내 피부 본연의 건강한 빛 , 내 삶의 빛나는 자신감 </p>
+                <div class="banner_text">BRAND STORY</div>
+            </li>
+            <li> <img src="images/2.jpg" alt="">
+                <h6>래디언-C크림</h6>
+                <p>초강력 톤업부스터의 힘으로 피부 코어부터 <br> 맑아지는
+                    비타민크림</p>
+                 <div class="banner_text">BEST SELLER</div></li>
+            <li> <img src="images/a1.png" alt="">
+                <h6><내가 크리에이터라면?> 참여하기</h6>
+                <p>라이프스타일로 알아보는 크리에이터 유형테스트</p>
+                 <div class="banner_text">LIFESTYLE TEST</div></li>
+            
+        </ul>
+    </div>
+    <!---->
+    
+    <div id="content">
+    <div id="content1"> <img src="1번.jpg" alt=""> <h2> NEW ARRIVALS</h2>
+    <h6>피토알렉신 수분 진정 클렌저</h6>
+    <p>도시 유해 환경으로부터 자극받은 피부를 부드럽게 세안하고 케어해주는 진정 특화 약산성 클렌저</p></div>
+    <div id="content2"><img src="2번.jpg" alt=""><h2> FLAGSHIP STORE</h2><h6>명동 쇼룸</h6>
+        <p>라네즈의 모든 제품을 편안하게 체험하고 구매 가능한
+            라네즈 브랜드 경험 공간</p></div>
+    <div id="content3"><img src="3번.jpg" alt=""><h2> BEST SELLER </h2><h6>네오 쿠션_매트</h6>
+        <p>함부로묻지않게 네오로밀착</p></div>
+    <div id="content4"><img src="4번.jpg" alt=""> <h2> NEW ARRIVALS</h2><h6>네오 파운데이션_매트</h6>
+        <p>구름결커버 자연광커버</p></div></div>
+
+        <!---->
+        <footer>
+           
+            <div id="footer1">  
+                <div id="footer_box1"><ul>
+                <li>회사소개</li>
+                <li>서비스이용약관</li>
+                <li>개인정보처리방침</li>
+                <li>영상정보처리 방침</li>
+                <li>뷰티포인트</li>
+                <li>사이트맵</li>
+                <li>공지사함</li></div>
+            </ul>
+             
+<div id="footer_box2">
+                <img src="icons/sns_facebook_renew.png" alt="">
+                <img src="icons/sns_instagram_renew.png" alt="">
+                <img src="icons/sns_tiktok_renew.png" alt="">
+                <img src="icons/sns_youtube_renew.png" alt="">
+             </div></div>
+             
+       <div id="footer2">
+        <div id="footer2_box1"><h6>객상담실 (수신자요금부담) 080-023-5454 운영시간 : 월-금 09:00 ~ 18:00</h6> <img src="icons/wa-mark (1).png" alt=""> <p>© <strong>AMOREPACIFIC</strong>  CORPORATION. ALL RIGHTS RESERVED.</p></div>
+        <div id="footer2_box2"> <select name="" id="">
+            <option value="">KOREA</option>
+            <option value="">USA</option>
+            <option value="">UK</option>
+            <option value="">JAPAN</option>
+            <option value="">CHINA</option>
+          
+        </select>
+   </div>
+       </div>
+  
+        </footer>
+
+     
+      
+</body>
+
+</html>
